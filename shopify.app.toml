@@ -1,0 +1,33 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "9c2536791c21f9a2fb4003d8accea8f7"
+name = "multi-seler"
+handle = "multi-seler"
+application_url = "https://sara-tablets-brief-deeper.trycloudflare.com"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "kobe-pottery.myshopify.com"
+include_config_on_deploy = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products"
+
+[auth]
+redirect_urls = [
+  "https://sara-tablets-brief-deeper.trycloudflare.com/auth/callback",
+  "https://sara-tablets-brief-deeper.trycloudflare.com/auth/shopify/callback",
+  "https://sara-tablets-brief-deeper.trycloudflare.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2024-10"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/uninstalled" ]
+  uri = "/webhooks/app/uninstalled"
+
+[pos]
+embedded = false
